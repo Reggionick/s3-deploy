@@ -54,27 +54,59 @@ module.exports = require("os");
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470);
-const wait = __webpack_require__(949);
+const deploy = __webpack_require__(376);
 
-
-// most @actions toolkit packages have async methods
 async function run() {
-  try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
+  try {
+    const folder = core.getInput('folder');
+    const bucket = core.getInput('bucket');
+    const distId = core.getInput('dist-id');
 
-    core.debug((new Date()).toTimeString())
-    wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
-  } 
+    await deploy(folder, bucket, distId);
+  }
   catch (error) {
     core.setFailed(error.message);
   }
 }
 
 run()
+
+
+/***/ }),
+
+/***/ 129:
+/***/ (function(module) {
+
+module.exports = require("child_process");
+
+/***/ }),
+
+/***/ 376:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const cp = __webpack_require__(129);
+
+let deploy = function(folder, bucket, distId) {
+  return new Promise((resolve, reject) => {
+    try {
+      const command = ` node ./node_modules/s3-deploy/bin/s3-deploy './${folder}/**' \
+                        --bucket ${bucket} \
+                        --cwd './${folder}' \
+                        --distId ${distId} \
+                        --etag \
+                        --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
+                        --invalidate '/' \
+                        --noCache `;
+
+      const output = cp.execSync(command).toString();
+      resolve(output)
+      } catch (e) {
+        reject(e)
+      }
+  });
+};
+
+module.exports = deploy;
 
 
 /***/ }),
@@ -340,24 +372,6 @@ exports.group = group;
 /***/ (function(module) {
 
 module.exports = require("path");
-
-/***/ }),
-
-/***/ 949:
-/***/ (function(module) {
-
-let wait = function(milliseconds) {
-  return new Promise((resolve, reject) => {
-    if (typeof(milliseconds) !== 'number') { 
-      throw new Error('milleseconds not a number'); 
-    }
-
-    setTimeout(() => resolve("done!"), milliseconds)
-  });
-}
-
-module.exports = wait;
-
 
 /***/ })
 
