@@ -6,22 +6,15 @@ This action is based on the work done by import-io on [s3-deploy](https://github
 
 ## Usage
 
-To deploy your static website with your Actions pipeline, specify the name of this repository with a tag number (`@v1` is recommended) as a `step` within your `workflow.yml` file.
-
-Inside your `.github/workflows/workflow.yml` file:
+You can use this action by referencing the v1 branch
 
 ```yaml
-steps:
-- uses: actions/checkout@master
-- uses: codecov/codecov-action@v1
-  with:
-    token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-    file: ./coverage.xml # optional
-    flags: unittests # optional
-    name: codecov-umbrella # optional
-    fail_ci_if_error: true # optional (default = false)
+uses: reggionick/s3-deploy@v1
+with:
+    folder: build
+    bucket: ${{ secrets.S3_BUCKET }}
+    dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 ```
->**Note**: This assumes that you've set your Codecov token inside *Settings > Secrets* as `CODECOV_TOKEN`. If not, you can [get an upload token](https://docs.codecov.io/docs/frequently-asked-questions#section-where-is-the-repository-upload-token-found-) for your specific repo on [codecov.io](https://www.codecov.io). Keep in mind that secrets are *not* available to forks of repositories.
 
 ## Arguments
 
@@ -33,7 +26,7 @@ S3 Deploy's Action supports three inputs from the user: `folder`, `bucket` and `
 | `bucket`  | The destination bucket | *Required*
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
 
-### Example `workflow.yml` with Codecov Action
+### Example `workflow.yml` with S3 Deploy Action
 
 ```yaml
 name: Example workflow for S3 Deploy
