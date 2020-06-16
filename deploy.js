@@ -3,7 +3,7 @@ const cp = require('child_process');
 let deploy = function(folder, bucket, distId) {
   return new Promise((resolve, reject) => {
     try {
-      const command = ` node ./node_modules/s3-deploy/bin/s3-deploy './${folder}/**' \
+      const command = `npx s3-deploy@1.4.0 './${folder}/**' \
                         --bucket ${bucket} \
                         --cwd './${folder}' \
                         --distId ${distId} \
