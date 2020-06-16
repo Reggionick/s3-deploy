@@ -1,22 +1,22 @@
-const cp = require('child_process');
+const exec = require("@actions/exec");
 
-let deploy = function(folder, bucket, distId) {
+let deploy = function (folder, bucket, distId) {
   return new Promise((resolve, reject) => {
     try {
-      const command = `npx s3-deploy@1.4.0 './${folder}/**' \
-                        --bucket ${bucket} \
-                        --cwd './${folder}' \
-                        --distId ${distId} \
-                        --etag \
-                        --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate '/' \
-                        --noCache `;
-
-      const output = cp.execSync(command).toString();
-      resolve(output)
-      } catch (e) {
-        reject(e)
-      }
+      const args = [
+        `./${folder}/**`,
+        `--bucket ${bucket}`,
+        `--cwd './${folder}'`,
+        `--distId ${distId}`,
+        `--etag`,
+        `--gzip xml,html,htm,js,css,ttf,otf,svg,txt`,
+        `--invalidate '/'`,
+        `--noCache`,
+      ];
+      exec.exec("npx s3-deploy@1.4.0", args).then(resolve).catch(reject);
+    } catch (e) {
+      reject(e);
+    }
   });
 };
 
