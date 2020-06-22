@@ -995,21 +995,23 @@ module.exports = require("assert");
 /***/ 376:
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
+const path = __webpack_require__(622);
 const exec = __webpack_require__(986);
 
 let deploy = function (folder, bucket, distId) {
   return new Promise((resolve, reject) => {
     try {
-      const command = `npx s3-deploy@1.4.0 './${folder}/**' \
+      const command = `npx s3-deploy@1.4.0 ./** \
                         --bucket ${bucket} \
-                        --cwd './${folder}' \
+                        --cwd . \
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
                         --invalidate / \
                         --noCache `;
 
-      exec.exec(command).then(resolve).catch(reject);
+      const cwd = path.resolve(folder);
+      exec.exec(command, [], { cwd }).then(resolve).catch(reject);
     } catch (e) {
       reject(e);
     }
