@@ -1,7 +1,7 @@
 {
   "name": "github-actions-s3-cloudfront-deploy",
-  "version": "1.2.1",
-  "description": "Github Actions S3 and Cloudfront Deploy",
+  "version": "1.2.2",
+  "description": "Github Actions S3 and CloudFront Deploy",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
@@ -17,7 +17,7 @@
     "Actions",
     "JavaScript",
     "S3",
-    "Cloudfront",
+    "CloudFront",
     "Upload"
   ],
   "author": "Luciano Bertenasco (lbertenasco)",
