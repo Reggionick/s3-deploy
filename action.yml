@@ -1,4 +1,4 @@
-name: 'S3 and Cloudfront Deploy'
+name: 'S3 and CloudFront Deploy'
 description: 'Deploy a static website to AWS S3 and invalidate CloudFront distribution path(s)'
 inputs:
   folder:
