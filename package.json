@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
-  "version": "1.1.2",
-  "description": "JavaScript Action Template",
+  "name": "github-actions-s3-deploy",
+  "version": "1.2.0",
+  "description": "Github Actions S3 and Cloudfront deploy",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
