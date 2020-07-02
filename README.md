@@ -9,22 +9,24 @@ This action is based on the work done by import-io on [s3-deploy](https://github
 You can use this action by referencing the v1 branch
 
 ```yaml
-uses: reggionick/s3-deploy@v1
+uses: lbertenasco/s3-deploy@v1
 with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+    invalidations: / *
 ```
 
 ## Arguments
 
-S3 Deploy's Action supports three inputs from the user: `folder`, `bucket` and `dist-id`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
+S3 Deploy's Action supports four inputs from the user: `folder`, `bucket`, `dist-id` and `invalidations`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
 
 | Input  | Description | Usage |
 | :---:     |     :---:   |    :---:   |
 | `folder`  | The folder to upload  | *Required* |
 | `bucket`  | The destination bucket | *Required*
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
+| `invalidations`  | The CloudFront Distribution path(s) to invalidate | *Required*
 
 ### Example `workflow.yml` with S3 Deploy Action
 
@@ -48,11 +50,12 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: reggionick/s3-deploy@v1
+          uses: lbertenasco/s3-deploy@v1
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+            invalidations: / *
 ```
 
 ## License

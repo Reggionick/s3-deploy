@@ -10,6 +10,9 @@ inputs:
   dist-id:
     description: 'AWS CloudFront distribution ID'
     required: true
+  invalidations:
+    description: 'AWS CloudFront invalidations path(s)'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -10,28 +10,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/lbertenasco/s3-deploy.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "JavaScript",
+    "S3",
+    "Cloudfront",
+    "Upload"
   ],
-  "author": "GitHub",
+  "author": "Luciano Bertenasco (lbertenasco)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/lbertenasco/s3-deploy/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/lbertenasco/s3-deploy#readme",
   "dependencies": {
-    "@actions/core": "^1.1.1",
+    "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.20.5",
+    "@zeit/ncc": "^0.22.3",
     "env-cmd": "^10.1.0",
-    "eslint": "^6.3.0",
-    "jest": "^24.9.0",
+    "eslint": "^7.3.1",
+    "jest": "^26.1.0",
     "prettier": "^2.0.5"
   }
 }

@@ -1,16 +1,17 @@
-const core = require('@actions/core');
-const deploy = require('./deploy');
+import { getInput, setFailed } from '@actions/core';
+import deploy from './deploy';
 
 async function run() {
   try {
-    const folder = core.getInput('folder');
-    const bucket = core.getInput('bucket');
-    const distId = core.getInput('dist-id');
+    const folder = getInput('folder');
+    const bucket = getInput('bucket');
+    const distId = getInput('dist-id');
+    const invalidations = getInput('invalidations');
 
-    await deploy(folder, bucket, distId);
+    await deploy(folder, bucket, distId, invalidations);
   }
   catch (error) {
-    core.setFailed(error.message);
+    setFailed(error.message);
   }
 }
 
