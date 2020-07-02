@@ -1022,7 +1022,7 @@ let deploy = function (folder, bucket, distId, invalidation) {
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate ${invalidation} \
+                        --invalidate "${invalidation}" \
                         --noCache `;
 
       const cwd = path.resolve(folder);
