@@ -1,7 +1,7 @@
 {
-  "name": "github-actions-s3-deploy",
-  "version": "1.2.0",
-  "description": "Github Actions S3 and Cloudfront deploy",
+  "name": "github-actions-s3-cloudfront-deploy",
+  "version": "1.2.1",
+  "description": "Github Actions S3 and Cloudfront Deploy",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",

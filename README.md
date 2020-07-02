@@ -14,19 +14,19 @@ with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-    invalidations: / *
+    invalidation: / *
 ```
 
 ## Arguments
 
-S3 Deploy's Action supports four inputs from the user: `folder`, `bucket`, `dist-id` and `invalidations`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
+S3 Deploy's Action supports four inputs from the user: `folder`, `bucket`, `dist-id` and `invalidation`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
 
 | Input  | Description | Usage |
 | :---:     |     :---:   |    :---:   |
 | `folder`  | The folder to upload  | *Required* |
 | `bucket`  | The destination bucket | *Required*
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
-| `invalidations`  | The CloudFront Distribution path(s) to invalidate | *Required*
+| `invalidation`  | The CloudFront Distribution path(s) to invalidate | *Required*
 
 ### Example `workflow.yml` with S3 Deploy Action
 
@@ -55,7 +55,7 @@ jobs:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-            invalidations: / *
+            invalidation: / *
 ```
 
 ## License

@@ -979,9 +979,9 @@ async function run() {
     const folder = Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('folder');
     const bucket = Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('bucket');
     const distId = Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('dist-id');
-    const invalidations = Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('invalidations');
+    const invalidation = Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('invalidation');
 
-    await _deploy__WEBPACK_IMPORTED_MODULE_1___default()(folder, bucket, distId, invalidations);
+    await _deploy__WEBPACK_IMPORTED_MODULE_1___default()(folder, bucket, distId, invalidation);
   }
   catch (error) {
     Object(_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message);
@@ -1013,7 +1013,7 @@ module.exports = require("assert");
 const path = __webpack_require__(622);
 const exec = __webpack_require__(986);
 
-let deploy = function (folder, bucket, distId, invalidations) {
+let deploy = function (folder, bucket, distId, invalidation) {
   return new Promise((resolve, reject) => {
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
@@ -1022,7 +1022,7 @@ let deploy = function (folder, bucket, distId, invalidations) {
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate ${invalidations} \
+                        --invalidate ${invalidation} \
                         --noCache `;
 
       const cwd = path.resolve(folder);
