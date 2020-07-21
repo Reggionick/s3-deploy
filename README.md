@@ -23,7 +23,8 @@ S3 Deploy's Action supports three inputs from the user: `folder`, `bucket` and `
 | Input  | Description | Usage |
 | :---:     |     :---:   |    :---:   |
 | `folder`  | The folder to upload  | *Required* |
-| `bucket`  | The destination bucket | *Required*
+| `bucket`  | The destination bucket | *Required* |
+| `bucket-region`  | The destination bucket region | *Required* |
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
 
 ### Example `workflow.yml` with S3 Deploy Action
@@ -52,6 +53,7 @@ jobs:
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
+            bucket-region: ${{ secrets.S3_BUCKET_REGION }}
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 ```
 
