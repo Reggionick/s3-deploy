@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "github-action-s3-deploy",
   "version": "1.1.2",
-  "description": "JavaScript Action Template",
+  "description": "Easily deploy a static website to AWS S3 and invalidate CloudFront distribution",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/Reggionick/s3-deploy.git"
   },
   "keywords": [
-    "GitHub",
     "Actions",
-    "JavaScript"
+    "AWS S3",
+    "CloudFront"
   ],
-  "author": "GitHub",
+  "author": "Nicola Reggiani <nicola.reggiani@codelaundry.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/Reggionick/s3-deploy/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/Reggionick/s3-deploy#readme",
   "dependencies": {
     "@actions/core": "^1.1.1",
     "@actions/exec": "^1.0.4"
