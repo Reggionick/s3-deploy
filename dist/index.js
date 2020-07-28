@@ -970,9 +970,11 @@ async function run() {
   try {
     const folder = core.getInput('folder');
     const bucket = core.getInput('bucket');
+    const bucketRegion = core.getInput('bucket-region');
     const distId = core.getInput('dist-id');
+    const invalidation = core.getInput('invalidation');
 
-    await deploy(folder, bucket, distId);
+    await deploy(folder, bucket, bucketRegion, distId, invalidation);
   }
   catch (error) {
     core.setFailed(error.message);
@@ -1004,16 +1006,17 @@ module.exports = require("assert");
 const path = __webpack_require__(622);
 const exec = __webpack_require__(986);
 
-let deploy = function (folder, bucket, distId) {
+let deploy = function (folder, bucket, bucketRegion, distId, invalidation) {
   return new Promise((resolve, reject) => {
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
                         --bucket ${bucket} \
+                        --region ${bucketRegion} \
                         --cwd . \
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate / \
+                        --invalidate "${invalidation}" \
                         --noCache `;
 
       const cwd = path.resolve(folder);

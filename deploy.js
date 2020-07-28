@@ -1,7 +1,7 @@
 const path = require("path");
 const exec = require("@actions/exec");
 
-let deploy = function (folder, bucket, bucketRegion, distId) {
+let deploy = function (folder, bucket, bucketRegion, distId, invalidation) {
   return new Promise((resolve, reject) => {
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
@@ -11,7 +11,7 @@ let deploy = function (folder, bucket, bucketRegion, distId) {
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate / \
+                        --invalidate "${invalidation}" \
                         --noCache `;
 
       const cwd = path.resolve(folder);
