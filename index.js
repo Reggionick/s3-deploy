@@ -10,10 +10,9 @@ async function run() {
     const invalidation = core.getInput('invalidation');
 
     await deploy(folder, bucket, bucketRegion, distId, invalidation);
-  }
-  catch (error) {
+  } catch (error) {
     core.setFailed(error.message);
   }
 }
 
-run()
+run();

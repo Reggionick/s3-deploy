@@ -1,5 +1,5 @@
-const path = require("path");
-const exec = require("@actions/exec");
+const path = require('path');
+const exec = require('@actions/exec');
 
 let deploy = function (folder, bucket, bucketRegion, distId, invalidation) {
   return new Promise((resolve, reject) => {
