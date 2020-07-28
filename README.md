@@ -18,7 +18,7 @@ with:
 
 ## Arguments
 
-S3 Deploy's Action supports three inputs from the user: `folder`, `bucket` and `dist-id`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
+S3 Deploy's Action supports four inputs from the user: `folder`, `bucket`, `bucket-region` and `dist-id`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
 
 | Input  | Description | Usage |
 | :---:     |     :---:   |    :---:   |
