@@ -6,10 +6,10 @@ This action is based on the work done by import-io on [s3-deploy](https://github
 
 ## Usage
 
-You can use this action by referencing the v1 branch
+You can use this action by referencing the v2 branch
 
 ```yaml
-uses: reggionick/s3-deploy@v1
+uses: reggionick/s3-deploy@v2
 with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
@@ -42,7 +42,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
-        - uses: actions/checkout@v1
+        - uses: actions/checkout@v2
 
         - name: Install dependencies
           run: yarn
@@ -51,7 +51,7 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: reggionick/s3-deploy@v1
+          uses: reggionick/s3-deploy@v2
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
