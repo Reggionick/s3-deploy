@@ -19,7 +19,7 @@ with:
 
 ## Arguments
 
-S3 Deploy's Action supports five inputs from the user: `folder`, `bucket`, `bucket-region`, `dist-id` and `invalidation`. These inputs, along with their descriptions and usage contexts, are listed in the table below:
+S3 Deploy's Action supports inputs from the user listed in the table below:
 
 | Input  | Description | Usage |
 | :---:     |     :---:   |    :---:   |
@@ -28,6 +28,7 @@ S3 Deploy's Action supports five inputs from the user: `folder`, `bucket`, `buck
 | `bucket-region`  | The destination bucket region | *Required* |
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
 | `invalidation`  | The CloudFront Distribution path(s) to invalidate | 
+| `delete-removed`  | Removes files in S3, that are not available in the local copy of the directory | 
 
 ### Example `workflow.yml` with S3 Deploy Action
 

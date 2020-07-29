@@ -3,7 +3,9 @@ const exec = require('@actions/exec');
 
 let deploy = function (params) {
   return new Promise((resolve, reject) => {
-    const { folder, bucket, bucketRegion, distId, invalidation } = params;
+    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved } = params;
+
+    const deleteRemovedArg = deleteRemoved ? `--deleteRemoved ${deleteRemoved}` : '';
 
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
@@ -14,7 +16,8 @@ let deploy = function (params) {
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
                         --invalidate "${invalidation}" \
-                        --noCache `;
+                        --noCache \
+                        ${deleteRemovedArg} `;
 
       const cwd = path.resolve(folder);
       exec.exec(command, [], { cwd }).then(resolve).catch(reject);

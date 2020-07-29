@@ -8,8 +8,9 @@ async function run() {
     const bucketRegion = core.getInput('bucket-region');
     const distId = core.getInput('dist-id');
     const invalidation = core.getInput('invalidation') || '/';
+    const deleteRemoved = core.getInput('delete-removed') || false;
 
-    await deploy({ folder, bucket, bucketRegion, distId, invalidation });
+    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved });
   } catch (error) {
     core.setFailed(error.message);
   }
