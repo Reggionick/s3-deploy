@@ -27,7 +27,7 @@ S3 Deploy's Action supports five inputs from the user: `folder`, `bucket`, `buck
 | `bucket`  | The destination bucket | *Required* |
 | `bucket-region`  | The destination bucket region | *Required* |
 | `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
-| `invalidation`  | The CloudFront Distribution path(s) to invalidate | *Required*
+| `invalidation`  | The CloudFront Distribution path(s) to invalidate | 
 
 ### Example `workflow.yml` with S3 Deploy Action
 
