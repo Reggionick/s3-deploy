@@ -14,21 +14,21 @@ with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
     dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-    invalidation: /
 ```
 
 ## Arguments
 
 S3 Deploy's Action supports inputs from the user listed in the table below:
 
-| Input  | Description | Usage |
-| :---:     |     :---:   |    :---:   |
-| `folder`  | The folder to upload  | *Required* |
-| `bucket`  | The destination bucket | *Required* |
-| `bucket-region`  | The destination bucket region | *Required* |
-| `dist-id`  | The CloudFront Distribution ID to invalidate | *Required*
-| `invalidation`  | The CloudFront Distribution path(s) to invalidate | 
-| `delete-removed`  | Removes files in S3, that are not available in the local copy of the directory | 
+Input              | Type             | Required | Default      | Description
+------------------ | ---------------- | -------- | ------------ | -----------
+| `folder`         | string           | Yes      |              | The folder to upload 
+| `bucket`         | string           | Yes      |              | The destination bucket 
+| `bucket-region`  | string           | Yes      |              | The destination bucket region
+| `dist-id`        | string           | Yes      |              | The CloudFront Distribution ID to invalidate
+| `invalidation`   | string           | No       | '/'          | The CloudFront Distribution path(s) to invalidate
+| `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
+
 
 ### Example `workflow.yml` with S3 Deploy Action
 
@@ -41,7 +41,6 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     steps:
         - uses: actions/checkout@v1
 
@@ -59,6 +58,7 @@ jobs:
             bucket-region: ${{ secrets.S3_BUCKET_REGION }}
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
+            delete-removed: true
 ```
 
 ## License
