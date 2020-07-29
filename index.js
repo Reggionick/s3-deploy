@@ -9,7 +9,7 @@ async function run() {
     const distId = core.getInput('dist-id');
     const invalidation = core.getInput('invalidation') || '/';
 
-    await deploy(folder, bucket, bucketRegion, distId, invalidation);
+    await deploy({ folder, bucket, bucketRegion, distId, invalidation });
   } catch (error) {
     core.setFailed(error.message);
   }
