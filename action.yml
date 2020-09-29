@@ -7,12 +7,18 @@ inputs:
   bucket:
     description: 'Name of AWS Bucket'
     required: true
+  bucket-region:
+    description: 'The destination bucket region'
+    required: true
   dist-id:
     description: 'AWS CloudFront distribution ID'
     required: true
   invalidation:
     description: 'AWS CloudFront invalidation path(s)'
-    required: true
+    required: false
+  delete-removed:
+    description: 'Removes files in S3, that are not available in the local copy of the directory'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
