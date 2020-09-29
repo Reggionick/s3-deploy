@@ -17,7 +17,7 @@ inputs:
     description: 'AWS CloudFront invalidation path(s)'
     required: false
   delete-removed:
-    description: 'Removes files in S3, that are not available in the local copy of the directory'
+    description: 'Removes files in S3 that are not available in the local copy of the directory'
     required: false
 runs:
   using: 'node12'
