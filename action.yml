@@ -19,6 +19,9 @@ inputs:
   delete-removed:
     description: 'Removes files in S3 that are not available in the local copy of the directory'
     required: false
+  cache:
+    description: 'wether to set noCache headers or not'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
