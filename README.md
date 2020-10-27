@@ -28,6 +28,7 @@ Input              | Type             | Required | Default      | Description
 | `dist-id`        | string           | Yes      |              | The CloudFront Distribution ID to invalidate
 | `invalidation`   | string           | No       | '/'          | The CloudFront Distribution path(s) to invalidate
 | `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
+| `private` | boolean / string | No       | false        | Upload files with private ACL, needed for S3 static website hosting
 
 
 ### Example `workflow.yml` with S3 Deploy Action
@@ -59,6 +60,7 @@ jobs:
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
             delete-removed: true
+            private: true
 ```
 
 ## License
