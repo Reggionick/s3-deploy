@@ -28,6 +28,7 @@ Input              | Type             | Required | Default      | Description
 | `dist-id`        | string           | Yes      |              | The CloudFront Distribution ID to invalidate
 | `invalidation`   | string           | No       | '/'          | The CloudFront Distribution path(s) to invalidate
 | `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
+| `noCache`        | boolean          | No       | false        | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header 
 
 
 ### Example `workflow.yml` with S3 Deploy Action
