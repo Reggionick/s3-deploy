@@ -3,9 +3,10 @@ const exec = require('@actions/exec');
 
 let deploy = function (params) {
   return new Promise((resolve, reject) => {
-    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, private } = params;
+    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private } = params;
 
     const deleteRemovedArg = deleteRemoved ? `--deleteRemoved ${deleteRemoved}` : '';
+    const noCacheArg = noCache ? '--noCache' : '';
     const privateArg = private ? '--private' : '';
 
     try {
@@ -17,8 +18,8 @@ let deploy = function (params) {
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
                         --invalidate "${invalidation}" \
-                        --noCache \
                         ${deleteRemovedArg} \
+                        ${noCacheArg} \
                         ${privateArg} `;
 
       const cwd = path.resolve(folder);
