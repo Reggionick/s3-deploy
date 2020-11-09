@@ -9,8 +9,9 @@ async function run() {
     const distId = core.getInput('dist-id');
     const invalidation = core.getInput('invalidation') || '/';
     const deleteRemoved = core.getInput('delete-removed') || false;
+    const noCache = core.getInput('no-cache') || false;
 
-    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved });
+    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache });
   } catch (error) {
     core.setFailed(error.message);
   }

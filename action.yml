@@ -19,8 +19,8 @@ inputs:
   delete-removed:
     description: 'Removes files in S3 that are not available in the local copy of the directory'
     required: false
-  cache:
-    description: 'wether to set noCache headers or not'
+  no-cache:
+    description: 'Use this parameter to specify Cache-Control: no-cache, no-store, must-revalidate header'
     required: false
 runs:
   using: 'node12'
