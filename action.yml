@@ -22,6 +22,9 @@ inputs:
   no-cache:
     description: 'Use this parameter to specify Cache-Control: no-cache, no-store, must-revalidate header'
     required: false
+  private:
+    description: 'Upload files with private ACL, needed for S3 static website hosting'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
