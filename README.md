@@ -29,7 +29,7 @@ Input              | Type             | Required | Default      | Description
 | `invalidation`   | string           | No       | '/'          | The CloudFront Distribution path(s) to invalidate
 | `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
 | `noCache`        | boolean          | No       | false        | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header 
-| `private`        | boolean / string | No       | false        | Upload files with private ACL, needed for S3 static website hosting
+| `private`        | boolean          | No       | false        | Upload files with private ACL, needed for S3 static website hosting
 
 
 ### Example `workflow.yml` with S3 Deploy Action
