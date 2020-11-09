@@ -5,7 +5,11 @@ let deploy = function (params) {
   return new Promise((resolve, reject) => {
     const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private } = params;
 
-    const deleteRemovedArg = deleteRemoved ? `--deleteRemoved ${deleteRemoved}` : '';
+    const deleteRemovedArg = deleteRemoved && !/false/i.test(deleteRemoved)
+      ? /true/i.test(deleteRemoved)
+        ? `--deleteRemoved`
+        : `--deleteRemoved ${deleteRemoved}`
+      : '';
     const noCacheArg = noCache ? '--noCache' : '';
     const privateArg = private ? '--private' : '';
 
