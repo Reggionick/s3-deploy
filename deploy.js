@@ -13,7 +13,7 @@ let deploy = function (params) {
       const command = `npx s3-deploy@1.4.0 ./** \
                         --bucket ${bucket} \
                         --region ${bucketRegion} \
-                        --cwd . \
+                        --cwd ./ \
                         --distId ${distId} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
