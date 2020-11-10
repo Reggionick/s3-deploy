@@ -6,10 +6,10 @@ This action is based on the work done by import-io on [s3-deploy](https://github
 
 ## Usage
 
-You can use this action by referencing the v2 branch
+You can use this action by referencing the v3 branch
 
 ```yaml
-uses: reggionick/s3-deploy@v2
+uses: reggionick/s3-deploy@v3
 with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
@@ -53,7 +53,7 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: reggionick/s3-deploy@v2
+          uses: reggionick/s3-deploy@v3
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
@@ -61,6 +61,7 @@ jobs:
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
             delete-removed: true
+            no-cache: true
             private: true
 ```
 
