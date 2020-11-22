@@ -12,7 +12,7 @@ inputs:
     required: true
   dist-id:
     description: 'AWS CloudFront distribution ID'
-    required: true
+    required: false
   invalidation:
     description: 'AWS CloudFront invalidation path(s)'
     required: false
