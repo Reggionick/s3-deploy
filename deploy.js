@@ -5,6 +5,8 @@ let deploy = function (params) {
   return new Promise((resolve, reject) => {
     const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private } = params;
 
+    const distIdArg = distId ? `--distId ${distId}` : '';
+    const invalidationArg = distId ? `--invalidate "${invalidation}"` : '';
     const deleteRemovedArg =
       deleteRemoved && !/false/i.test(deleteRemoved)
         ? /true/i.test(deleteRemoved)
@@ -13,7 +15,6 @@ let deploy = function (params) {
         : '';
     const noCacheArg = noCache ? '--noCache' : '';
     const privateArg = private ? '--private' : '';
-    const distIdArg = distId ? `--distId ${distId}` : '';
 
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
@@ -23,7 +24,7 @@ let deploy = function (params) {
                         ${distIdArg} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate "${invalidation}" \
+                        ${invalidationArg} \
                         ${deleteRemovedArg} \
                         ${noCacheArg} \
                         ${privateArg} `;
