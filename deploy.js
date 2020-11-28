@@ -5,11 +5,14 @@ let deploy = function (params) {
   return new Promise((resolve, reject) => {
     const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private } = params;
 
-    const deleteRemovedArg = deleteRemoved && !/false/i.test(deleteRemoved)
-      ? /true/i.test(deleteRemoved)
-        ? `--deleteRemoved`
-        : `--deleteRemoved ${deleteRemoved}`
-      : '';
+    const distIdArg = distId ? `--distId ${distId}` : '';
+    const invalidationArg = distId ? `--invalidate "${invalidation}"` : '';
+    const deleteRemovedArg =
+      deleteRemoved && !/false/i.test(deleteRemoved)
+        ? /true/i.test(deleteRemoved)
+          ? `--deleteRemoved`
+          : `--deleteRemoved ${deleteRemoved}`
+        : '';
     const noCacheArg = noCache ? '--noCache' : '';
     const privateArg = private ? '--private' : '';
 
@@ -18,10 +21,10 @@ let deploy = function (params) {
                         --bucket ${bucket} \
                         --region ${bucketRegion} \
                         --cwd ./ \
-                        --distId ${distId} \
+                        ${distIdArg} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        --invalidate "${invalidation}" \
+                        ${invalidationArg} \
                         ${deleteRemovedArg} \
                         ${noCacheArg} \
                         ${privateArg} `;
