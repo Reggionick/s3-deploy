@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const deploy = require('./deploy');
 
 function getBooleanInput(name) {
-  return core.getInput(name) === 'true';
+  return core.getInput(name).toLowerCase() === 'true';
 }
 
 async function run() {

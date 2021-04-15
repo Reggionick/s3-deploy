@@ -1029,7 +1029,7 @@ const core = __webpack_require__(470);
 const deploy = __webpack_require__(376);
 
 function getBooleanInput(name) {
-  return core.getInput(name) === 'true';
+  return core.getInput(name).toLowerCase() === 'true';
 }
 
 async function run() {
