@@ -1028,6 +1028,10 @@ exports.issueCommand = issueCommand;
 const core = __webpack_require__(470);
 const deploy = __webpack_require__(376);
 
+function getBooleanInput(name) {
+  return core.getInput(name).toLowerCase() === 'true';
+}
+
 async function run() {
   try {
     const folder = core.getInput('folder');
@@ -1036,8 +1040,8 @@ async function run() {
     const distId = core.getInput('dist-id');
     const invalidation = core.getInput('invalidation') || '/';
     const deleteRemoved = core.getInput('delete-removed') || false;
-    const noCache = core.getInput('no-cache') || false;
-    const private = core.getInput('private') || false;
+    const noCache = getBooleanInput('no-cache');
+    const private = getBooleanInput('private');
 
     await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private });
   } catch (error) {
