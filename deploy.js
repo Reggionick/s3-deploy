@@ -16,6 +16,9 @@ let deploy = function (params) {
     const noCacheArg = noCache ? '--noCache' : '';
     const privateArg = private ? '--private' : '';
 
+    exec.exec(`pwd`).then();
+    exec.exec(`ls`).then();
+
     try {
       const command = `npx s3-deploy@1.4.0 ./** \
                         --bucket ${bucket} \
