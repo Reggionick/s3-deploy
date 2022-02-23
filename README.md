@@ -13,7 +13,7 @@ uses: reggionick/s3-deploy@v3
 with:
     folder: build
     bucket: ${{ secrets.S3_BUCKET }}
-    dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+    bucket-region: us-east-1
 ```
 
 ## Arguments
