@@ -1099,7 +1099,7 @@ let deploy = function (params) {
                         ${distIdArg} \
                         --etag \
                         --gzip xml,html,htm,js,css,ttf,otf,svg,txt \
-                        ${cache} \
+                        ${cacheFlag} \
                         ${invalidationArg} \
                         ${deleteRemovedArg} \
                         ${noCacheArg} \
