@@ -15,8 +15,9 @@ async function run() {
     const deleteRemoved = core.getInput('delete-removed') || false;
     const noCache = getBooleanInput('no-cache');
     const private = getBooleanInput('private');
+    const cache   = core.getInput('cache') || null;
 
-    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private });
+    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache });
   } catch (error) {
     core.setFailed(error.message);
   }
