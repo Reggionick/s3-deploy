@@ -25,6 +25,9 @@ inputs:
   private:
     description: 'Upload files with private ACL, needed for S3 static website hosting'
     required: false
+  cache:
+    description: 'Sets the Cache-Control: max-age=X header'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
