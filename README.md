@@ -30,6 +30,7 @@ Input              | Type             | Required | Default      | Description
 | `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
 | `noCache`        | boolean          | No       | false        | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header 
 | `private`        | boolean          | No       | false        | Upload files with private ACL, needed for S3 static website hosting
+| `cache`          | string           | No       |              | Sets the Cache-Control: max-age=X header
 
 
 ### Example `workflow.yml` with S3 Deploy Action
