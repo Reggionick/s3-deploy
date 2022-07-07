@@ -31,6 +31,7 @@ Input              | Type             | Required | Default      | Description
 | `noCache`        | boolean          | No       | false        | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header 
 | `private`        | boolean          | No       | false        | Upload files with private ACL, needed for S3 static website hosting
 | `cache`          | string           | No       |              | Sets the Cache-Control: max-age=X header
+| `filesToInclude` | string           | No       | "**"           | Allows for a comma delineated Regex String that matches files to include in the deployment
 
 
 ### Example `workflow.yml` with S3 Deploy Action
@@ -64,6 +65,7 @@ jobs:
             delete-removed: true
             no-cache: true
             private: true
+            filesToInclude: ".*/*,*/*,**"
 ```
 
 ## License

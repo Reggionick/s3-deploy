@@ -28,6 +28,9 @@ inputs:
   cache:
     description: 'Sets the Cache-Control: max-age=X header'
     required: false
+  filesToInclude:
+    description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
