@@ -31,7 +31,7 @@ inputs:
   filesToInclude:
     description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
     required: false
-  filesToInclude:
+  enableBrotli:
     description: 'Enables brotli compression ( You need to enable it in CF as well)'
     required: false
 runs:
