@@ -1,6 +1,6 @@
 {
   "name": "github-action-s3-deploy",
-  "version": "1.0.1",
+  "version": "3.2.0",
   "description": "Easily deploy a static website to AWS S3 and invalidate CloudFront distribution",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blumed/s3-deploy.git"
+    "url": "git+https://github.com/Reggionick/s3-deploy.git"
   },
   "keywords": [
     "Actions",
