@@ -17,8 +17,9 @@ async function run() {
     const private = getBooleanInput('private');
     const cache   = core.getInput('cache') || null;
     const filesToInclude = core.getInput('files-to-include') || null;
+    const enableBrotli = core.getInput('enableBrotli') || false;
 
-    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, filesToInclude });
+    await deploy({ folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, filesToInclude, enableBrotli });
   } catch (error) {
     core.setFailed(error.message);
   }
