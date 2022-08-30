@@ -3,7 +3,7 @@ const exec = require('@actions/exec');
 
 let deploy = function (params) {
   return new Promise((resolve, reject) => {
-    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, filesToInclude } = params;
+    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, immutable, filesToInclude } = params;
 
     const distIdArg = distId ? `--distId ${distId}` : '';
     const invalidationArg = distId ? `--invalidate "${invalidation}"` : '';
@@ -14,6 +14,7 @@ let deploy = function (params) {
           : `--deleteRemoved ${deleteRemoved}`
         : '';
     const noCacheArg = noCache ? '--noCache' : '';
+    const immutableArg = immutable ? '--immutable' : '';
     const privateArg = private ? '--private' : '';
     const cacheFlag  = cache ? `--cache ${cache}` : '';
     const filesRegex = filesToInclude ? filesToInclude : '**';  
@@ -30,6 +31,7 @@ let deploy = function (params) {
                         ${invalidationArg} \
                         ${deleteRemovedArg} \
                         ${noCacheArg} \
+                        ${immutableArg} \
                         ${privateArg} `;
 
       const cwd = path.resolve(folder);
