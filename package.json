@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Reggionick/s3-deploy#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.10.0",
     "@actions/exec": "^1.0.4"
   },
   "devDependencies": {
