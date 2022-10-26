@@ -1,39 +1,39 @@
-name: 'S3 Deploy'
-description: 'Deploy a static website to AWS S3 and invalidate CloudFront distribution'
+name: "S3 Deploy"
+description: "Deploy a static website to AWS S3 and invalidate CloudFront distribution"
 inputs:
   folder:
-    description: 'Directory to deploy'
+    description: "Directory to deploy"
     required: true
   bucket:
-    description: 'Name of AWS Bucket'
+    description: "Name of AWS Bucket"
     required: true
   bucket-region:
-    description: 'The destination bucket region'
+    description: "The destination bucket region"
     required: true
   dist-id:
-    description: 'AWS CloudFront distribution ID'
+    description: "AWS CloudFront distribution ID"
     required: false
   invalidation:
-    description: 'AWS CloudFront invalidation path(s)'
+    description: "AWS CloudFront invalidation path(s)"
     required: false
   delete-removed:
-    description: 'Removes files in S3 that are not available in the local copy of the directory'
+    description: "Removes files in S3 that are not available in the local copy of the directory"
     required: false
   no-cache:
-    description: 'Use this parameter to specify Cache-Control: no-cache, no-store, must-revalidate header'
+    description: "Use this parameter to specify Cache-Control: no-cache, no-store, must-revalidate header"
     required: false
   private:
-    description: 'Upload files with private ACL, needed for S3 static website hosting'
+    description: "Upload files with private ACL, needed for S3 static website hosting"
     required: false
   cache:
-    description: 'Sets the Cache-Control: max-age=X header'
+    description: "Sets the Cache-Control: max-age=X header"
     required: false
-  filesToInclude:
-    description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
+  files-to-include:
+    description: "Allows for a comma delineated Regex String that matches files to include in the deployment"
     required: false
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
 branding:
-  icon: 'upload-cloud'
-  color: 'orange'
+  icon: "upload-cloud"
+  color: "orange"
