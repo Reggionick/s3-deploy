@@ -32,7 +32,7 @@ inputs:
     description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
     required: false
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   icon: 'upload-cloud'
