@@ -20,18 +20,18 @@ with:
 
 S3 Deploy's Action supports inputs from the user listed in the table below:
 
-Input              | Type             | Required | Default      | Description
------------------- | ---------------- | -------- | ------------ | -----------
-| `folder`         | string           | Yes      |              | The folder to upload 
-| `bucket`         | string           | Yes      |              | The destination bucket 
-| `bucket-region`  | string           | Yes      |              | The destination bucket region
-| `dist-id`        | string           | No       | undefined    | The CloudFront Distribution ID to invalidate
-| `invalidation`   | string           | No       | '/'          | The CloudFront Distribution path(s) to invalidate
-| `delete-removed` | boolean / string | No       | false        | Removes files in S3, that are not available in the local copy of the directory 
-| `noCache`        | boolean          | No       | false        | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header 
-| `private`        | boolean          | No       | false        | Upload files with private ACL, needed for S3 static website hosting
-| `cache`          | string           | No       |              | Sets the Cache-Control: max-age=X header
-| `filesToInclude` | string           | No       | "**"           | Allows for a comma delineated Regex String that matches files to include in the deployment
+| Input              | Type             | Required | Default   | Description                                                                                |
+|--------------------|------------------|----------|-----------|--------------------------------------------------------------------------------------------|
+| `folder`           | string           | Yes      |           | The folder to upload                                                                       |
+| `bucket`           | string           | Yes      |           | The destination bucket                                                                     |
+| `bucket-region`    | string           | Yes      |           | The destination bucket region                                                              |
+| `dist-id`          | string           | No       | undefined | The CloudFront Distribution ID to invalidate                                               |
+| `invalidation`     | string           | No       | '/'       | The CloudFront Distribution path(s) to invalidate                                          |
+| `delete-removed`   | boolean / string | No       | false     | Removes files in S3, that are not available in the local copy of the directory             |
+| `no-cache`         | boolean          | No       | false     | Use this parameter to specify `Cache-Control: no-cache, no-store, must-revalidate` header  |
+| `private`          | boolean          | No       | false     | Upload files with private ACL, needed for S3 static website hosting                        |
+| `cache`            | string           | No       |           | Sets the Cache-Control: max-age=X header                                                   |
+| `files-to-include` | string           | No       | "**"      | Allows for a comma delineated Regex String that matches files to include in the deployment |
 
 
 ### Example `workflow.yml` with S3 Deploy Action
@@ -65,7 +65,7 @@ jobs:
             delete-removed: true
             no-cache: true
             private: true
-            filesToInclude: ".*/*,*/*,**"
+            files-to-include: ".*/*,*/*,**"
 ```
 
 ## License
