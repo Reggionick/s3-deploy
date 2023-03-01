@@ -28,6 +28,9 @@ inputs:
   cache:
     description: 'Sets the Cache-Control: max-age=X header'
     required: false
+  immutable:
+    description: 'Sets the Cache-Control header to immutable'
+    required: false
   files-to-include:
     description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
     required: false
