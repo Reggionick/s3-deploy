@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Reggionick/s3-deploy.git"
+    "url": "git+https://github.com/Offlein/s3-deploy.git"
   },
   "keywords": [
     "Actions",

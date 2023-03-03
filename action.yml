@@ -1,4 +1,4 @@
-name: 'S3 Deploy'
+name: 'S3 Deploy Offlein'
 description: 'Deploy a static website to AWS S3 and invalidate CloudFront distribution'
 inputs:
   folder:
@@ -33,6 +33,9 @@ inputs:
     required: false
   files-to-include:
     description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
+    required: false
+  file-prefix:
+    description: 'Prefix to place files in, within the destination S3 bucket'
     required: false
 runs:
   using: 'node16'

@@ -3,7 +3,7 @@ const exec = require('@actions/exec');
 
 let deploy = function (params) {
   return new Promise((resolve, reject) => {
-    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, immutable, filesToInclude } = params;
+    const { folder, bucket, bucketRegion, distId, invalidation, deleteRemoved, noCache, private, cache, immutable, filesToInclude, filePrefix } = params;
 
     const distIdArg = distId ? `--distId ${distId}` : '';
     const invalidationArg = distId ? `--invalidate "${invalidation}"` : '';
@@ -17,7 +17,8 @@ let deploy = function (params) {
     const immutableArg = immutable ? '--immutable' : '';
     const privateArg = private ? '--private' : '';
     const cacheFlag  = cache ? `--cache ${cache}` : '';
-    const filesRegex = filesToInclude ? filesToInclude : '**';  
+    const filesRegex = filesToInclude ? filesToInclude : '**';
+    const filePrefixFlag = filePrefix ? `--filePrefix ${filePrefix}` : '';
 
     try {
       const command = `npx s3-deploy@1.4.0 ./${filesRegex} \
@@ -32,6 +33,7 @@ let deploy = function (params) {
                         ${deleteRemovedArg} \
                         ${noCacheArg} \
                         ${immutableArg} \
+                        ${filePrefixFlag} \
                         ${privateArg} `;
 
       const cwd = path.resolve(folder);
