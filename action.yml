@@ -1,4 +1,4 @@
-name: 'S3 Deploy Offlein'
+name: 'S3 Deploy'
 description: 'Deploy a static website to AWS S3 and invalidate CloudFront distribution'
 inputs:
   folder:
