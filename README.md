@@ -32,7 +32,7 @@ S3 Deploy's Action supports inputs from the user listed in the table below:
 | `private`          | boolean          | No       | false        | Upload files with private ACL, needed for S3 static website hosting
 | `cache`            | string           | No       |              | Sets the Cache-Control: max-age=X header
 | `immutable`        | boolean          | No       | false        | Sets the Cache-Control header to 'immutable'
-| `cacheControl`     | string           | No       |              | Sets the Cache-Control: X header
+| `cache-control`    | string           | No       |              | Sets the Cache-Control: X header
 | `files-to-include` | string           | No       | "**"           | Allows for a comma delineated Regex String that matches files to include in the deployment
 
 
