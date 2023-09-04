@@ -6,6 +6,7 @@
   "scripts": {
     "start": "env-cmd node index.js",
     "lint": "eslint index.js",
+    "prettier": "prettier --write \"*.{js,md,yml}\"",
     "package": "ncc build index.js -o dist"
   },
   "repository": {
