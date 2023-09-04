@@ -522,7 +522,7 @@ class ToolRunner extends events.EventEmitter {
         // command line parser.
         //
         // for a detailed description of the cmd.exe command line parser, refer to
-        // http://stackoverflow.com/questions/4094699/how-does-the-windows-command-interpreter-cmd-exe-parse-scripts/7970912#7970912
+        // https://stackoverflow.com/questions/4094699/how-does-the-windows-command-interpreter-cmd-exe-parse-scripts/7970912#7970912
         // need quotes for empty arg
         if (!arg) {
             return '""';
@@ -1884,7 +1884,7 @@ let deploy = function (params) {
     const immutableArg = immutable ? '--immutable' : '';
     const privateArg = private ? '--private' : '';
     const cacheFlag  = cache ? `--cache ${cache}` : '';
-    const filesRegex = filesToInclude ? filesToInclude : '**';  
+    const filesRegex = filesToInclude ? filesToInclude : '**';
 
     try {
       const command = `npx s3-deploy@1.4.0 ./${filesRegex} \
@@ -3415,7 +3415,7 @@ class Summary {
     /**
      * If the summary buffer is empty
      *
-     * @returns {boolen} true if the buffer is empty
+     * @returns {boolean} true if the buffer is empty
      */
     isEmptyBuffer() {
         return this._buffer.length === 0;
@@ -3857,8 +3857,8 @@ class OidcClient {
             const res = yield httpclient
                 .getJson(id_token_url)
                 .catch(error => {
-                throw new Error(`Failed to get ID Token. \n 
-        Error Code : ${error.statusCode}\n 
+                throw new Error(`Failed to get ID Token. \n
+        Error Code : ${error.statusCode}\n
         Error Message: ${error.result.message}`);
             });
             const id_token = (_a = res.result) === null || _a === void 0 ? void 0 : _a.value;
@@ -3920,7 +3920,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // **`v1()` - Generate time-based UUID**
 //
 // Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
+// and https://docs.python.org/3/library/uuid.html
 let _nodeId;
 
 let _clockseq; // Previous uuid creation time
@@ -4136,7 +4136,7 @@ function getExecOutput(commandLine, args, options) {
     return __awaiter(this, void 0, void 0, function* () {
         let stdout = '';
         let stderr = '';
-        //Using string decoder covers the case where a mult-byte character is split
+        // Using string decoder covers the case where a multi-byte character is split
         const stdoutDecoder = new string_decoder_1.StringDecoder('utf8');
         const stderrDecoder = new string_decoder_1.StringDecoder('utf8');
         const originalStdoutListener = (_a = options === null || options === void 0 ? void 0 : options.listeners) === null || _a === void 0 ? void 0 : _a.stdout;
@@ -4155,7 +4155,7 @@ function getExecOutput(commandLine, args, options) {
         };
         const listeners = Object.assign(Object.assign({}, options === null || options === void 0 ? void 0 : options.listeners), { stdout: stdOutListener, stderr: stdErrListener });
         const exitCode = yield exec(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
-        //flush any remaining characters
+        // flush any remaining characters
         stdout += stdoutDecoder.end();
         stderr += stderrDecoder.end();
         return {
