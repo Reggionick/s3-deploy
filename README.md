@@ -65,9 +65,45 @@ jobs:
           delete-removed: true
           no-cache: true
           private: true
-          files-to-include: '.*/*,*/*,**'
+          files-to-include: '{.*/**,**}'
 ```
 
+### Minimum IAM Policy
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "AllowS3BucketManipulation",
+			"Effect": "Allow",
+			"Action": [
+				"s3:PutObject",
+				"s3:GetObject",
+				"s3:DeleteObject",
+				"s3:ListMultipartUploadParts",
+				"s3:AbortMultipartUpload",
+				"s3:ListBucket"
+			],
+			"Resource": "arn:aws:s3:::<bucket name>/*"
+		},
+		{
+			"Sid": "AllowS3BukcetListing",
+			"Effect": "Allow",
+			"Action": [
+				"s3:ListBucket"
+			],
+			"Resource": "arn:aws:s3:::<bucket name>"
+		},
+		{
+			"Sid": "CFInvalidation",
+			"Effect": "Allow",
+			"Action": "cloudfront:CreateInvalidation",
+			"Resource": "arn:aws:cloudfront::<AWS account ID>:distribution/<CF distribution ID>"
+		}
+	]
+}
+```
 ## License
 
 The code in this project is released under the [MIT License](LICENSE).
