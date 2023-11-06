@@ -65,7 +65,7 @@ jobs:
           delete-removed: true
           no-cache: true
           private: true
-          files-to-include: '.*/*,*/*,**'
+          files-to-include: '{.*/**,**}'
 ```
 
 ## License
