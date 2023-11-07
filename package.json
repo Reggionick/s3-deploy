@@ -1,11 +1,12 @@
 {
   "name": "github-action-s3-deploy",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Easily deploy a static website to AWS S3 and invalidate CloudFront distribution",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
     "lint": "eslint index.js",
+    "prettier": "prettier --write \"*.{js,md,yml}\"",
     "package": "ncc build index.js -o dist"
   },
   "repository": {
@@ -24,13 +25,13 @@
   },
   "homepage": "https://github.com/Reggionick/s3-deploy#readme",
   "dependencies": {
-    "@actions/core": "^1.10.0",
+    "@actions/core": "^1.10.1",
     "@actions/exec": "^1.1.1"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
     "env-cmd": "^10.1.0",
-    "eslint": "^8.38.0",
-    "prettier": "^2.8.7"
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3"
   }
 }
