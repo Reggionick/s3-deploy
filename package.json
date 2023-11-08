@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
-    "lint": "eslint index.js",
+    "lint": "eslint *.js",
     "prettier": "prettier --write \"*.{js,md,yml}\"",
     "package": "ncc build index.js -o dist"
   },
@@ -32,6 +32,6 @@
     "@zeit/ncc": "^0.22.3",
     "env-cmd": "^10.1.0",
     "eslint": "^8.53.0",
-    "prettier": "^3.0.3"
+    "prettier": "3.0.3"
   }
 }

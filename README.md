@@ -1,6 +1,6 @@
 # AWS S3 Deploy GitHub Action
 
-### Easily deploy a static website to AWS S3 and invalidate CloudFront distribution
+**Easily deploy a static website to AWS S3 and invalidate CloudFront distribution**
 
 This action is based on the work done by import-io on [s3-deploy](https://www.npmjs.com/package/s3-deploy).
 
@@ -89,7 +89,7 @@ jobs:
 			"Resource": "arn:aws:s3:::<bucket name>/*"
 		},
 		{
-			"Sid": "AllowS3BukcetListing",
+			"Sid": "AllowS3BucketListing",
 			"Effect": "Allow",
 			"Action": [
 				"s3:ListBucket"
@@ -105,6 +105,7 @@ jobs:
 	]
 }
 ```
+
 ## License
 
 The code in this project is released under the [MIT License](LICENSE).
