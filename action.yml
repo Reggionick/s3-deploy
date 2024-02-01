@@ -38,7 +38,7 @@ inputs:
     description: 'Allows for a comma delineated Regex String that matches files to include in the deployment'
     required: false
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'upload-cloud'
