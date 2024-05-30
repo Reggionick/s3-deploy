@@ -6,7 +6,7 @@ This action is based on the work done by import-io on [s3-deploy](https://www.np
 
 ## Usage
 
-You can use this action by referencing the v3 branch
+You can use this action by referencing the v4 branch
 
 ```yaml
 uses: reggionick/s3-deploy@v4
