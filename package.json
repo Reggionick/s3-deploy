@@ -26,7 +26,7 @@
   "homepage": "https://github.com/Reggionick/s3-deploy#readme",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/exec": "^1.1.1"
+    "@actions/exec": "^2.0.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.1",
